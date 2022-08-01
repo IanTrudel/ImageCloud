@@ -33,7 +33,7 @@ class CloudPacker():
             dx, dy = self.find_window_center_coordinates([window, px - margin, py - margin, w + margin, h + margin])
             block = [window, dx - margin, dy - margin, w + margin, h + margin]
 
-         placements.append(block)
+         placements.append([window, dx, dy, w, h])
 
       return placements
 
