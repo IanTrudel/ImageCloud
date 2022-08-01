@@ -24,14 +24,14 @@ class CloudPacker():
       for position, block in enumerate(blocks):
          window, w, h = block
          px, py = next(spiral)
-         dx, dy = self.find_window_center_coordinates([window, px, py, w, h])
+         dx, dy = self.find_window_center_coordinates([window, px - margin, py - margin, w + margin, h + margin])
 
-         block = [window, dx, dy, w, h]
+         block = [window, dx - margin, dy - margin, w + margin, h + margin]
 
          while(position and self.is_window_intersect_view(block, placements)):
             px, py = next(spiral)
-            dx, dy = self.find_window_center_coordinates([window, px, py, w, h])
-            block = [window, dx, dy, w, h]
+            dx, dy = self.find_window_center_coordinates([window, px - margin, py - margin, w + margin, h + margin])
+            block = [window, dx - margin, dy - margin, w + margin, h + margin]
 
          placements.append(block)
 
